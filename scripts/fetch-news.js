@@ -4,7 +4,7 @@ import Parser from "rss-parser";
 const parser = new Parser();
 
 async function fetchNews() {
-  const feed = await parser.parseURL("https://pib.gov.in/rss.aspx");
+  const feed = await parser.parseURL("https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3");
 
   const articles = feed.items.slice(0, 5).map(item => ({
     title: item.title,

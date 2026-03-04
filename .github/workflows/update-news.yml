@@ -13,20 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - run: npm install rss-parser
-      - run: node scripts/fetch-news.js
+      - name: Install dependency
+        run: npm install rss-parser
 
-      - name: Commit changes
+      - name: Fetch news
+        run: node scripts/fetch-news.js
+
+      - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git pull origin main --rebase
           git add .
           git commit -m "Auto update news" || echo "No changes"
-          git push
+          git push origin HEAD:main --force

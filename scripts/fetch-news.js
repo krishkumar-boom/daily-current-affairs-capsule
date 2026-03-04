@@ -5,12 +5,12 @@ const parser = new Parser();
 
 async function fetchNews() {
 
-const feed = await parser.parseURL("https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3");
+const feed = await parser.parseURL("https://www.thehindu.com/news/national/feeder/default.rss");
 
 const articles = feed.items.slice(0, 5).map(item => ({
   title: item.title,
   summary: item.contentSnippet,
-  source: "PIB",
+  source: "The Hindu",
   date: new Date().toISOString().split("T")[0]
 }));
 

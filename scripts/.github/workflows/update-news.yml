@@ -22,11 +22,16 @@ jobs:
 
       - run: npm install
       - run: node scripts/fetch-news.js
+      
+- name: Generate current affairs
+  run: node scripts/generate-ca.js
 
-      - name: Commit changes
-        run: |
-          git config --global user.name "news-bot"
-          git config --global user.email "bot@example.com"
-          git add .
-          git commit -m "update daily news"
-          git push
+  - name: Commit changes
+  run: |
+    git config --global user.name "github-actions[bot]"
+    git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    git fetch origin
+    git reset --hard origin/main
+    git add .
+    git commit -m "update daily news" || echo "No changes"
+    git push origin HEAD:main

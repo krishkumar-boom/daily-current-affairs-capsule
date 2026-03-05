@@ -43,6 +43,12 @@ jobs:
      env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      
+   - name: Send Poll Quiz
+     run: node scripts/send-poll.js
+     env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
  
    - name: Generate PDF
      run: node scripts/generate-pdf.js

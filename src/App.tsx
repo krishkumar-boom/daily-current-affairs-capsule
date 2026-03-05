@@ -20,7 +20,7 @@ export default function App() {
     <div
       style={{
         fontFamily: "Arial",
-        background: "#f4f6f8",
+        background: "#0b0f19",
         minHeight: "100vh",
         padding: "20px"
       }}
@@ -67,7 +67,8 @@ export default function App() {
           <div
             key={index}
             style={{
-              background: "white",
+              background: "#111827",
+color: "white",
               padding: "20px",
               borderRadius: "10px",
               marginBottom: "20px",
@@ -79,11 +80,11 @@ export default function App() {
               {item.title}
             </h2>
 
-            <p style={{ color: "#444" }}>
+            <p style={{ color: "#d1d5db" }}>
               {item.summary}
             </p>
 
-            <small style={{ color: "#888" }}>
+            <small style={{ color: "#9ca3af" }}>
               {item.source} | {item.date}
             </small>
 

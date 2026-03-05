@@ -38,6 +38,9 @@ jobs:
    - name: Generate PDF
      run: node scripts/generate-pdf.js
 
+   - name: Send PDF to Telegram
+     run: node scripts/send-telegram.js
+  
    - name: Commit changes
      run: |
       git config --global user.name "github-actions[bot]"

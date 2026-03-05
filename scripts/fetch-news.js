@@ -14,6 +14,8 @@ const articles = feed.items.slice(0, 5).map(item => ({
   date: new Date().toISOString().split("T")[0]
 }));
 
+console.log(articles);   // 👈 ye line add karo
+
 fs.writeFileSync("src/data/news.json",
 JSON.stringify(articles, null, 2));
 

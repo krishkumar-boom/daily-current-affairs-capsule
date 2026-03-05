@@ -9,6 +9,7 @@ type News = {
 
 export default function App() {
   const [news, setNews] = useState<News[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("/news.json")
@@ -23,14 +24,41 @@ export default function App() {
         background: "#0b1220",
         minHeight: "100vh",
         padding: "20px",
-        color: "white",
+        color: "white"
       }}
     >
+
+      {/* SEARCH BAR */}
+      <div style={{ textAlign: "center", marginBottom: "20px" }}>
+        <input
+          type="text"
+          placeholder="Search current affairs..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={{
+            padding: "10px",
+            width: "60%",
+            borderRadius: "8px",
+            border: "none",
+            outline: "none"
+          }}
+        />
+      </div>
+
       {/* HEADER */}
       <div style={{ textAlign: "center", marginBottom: "30px" }}>
-        <img src="/logo.jpg" width="120" />
+        <img
+          src="/logo.jpg"
+          width="120"
+          style={{
+            borderRadius: "50%",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+          }}
+        />
 
-        <h1 style={{ marginTop: "10px" }}>Daily Current Affairs Capsule</h1>
+        <h1 style={{ marginTop: "10px" }}>
+          Daily Current Affairs Capsule
+        </h1>
 
         <p style={{ color: "#94a3b8" }}>
           UPSC • NDA • Defence Exam Preparation
@@ -38,6 +66,7 @@ export default function App() {
 
         {/* TELEGRAM BUTTONS */}
         <div style={{ marginTop: "15px" }}>
+
           <a
             href="https://t.me/upscNDAwithKRISH"
             target="_blank"
@@ -49,7 +78,7 @@ export default function App() {
               color: "white",
               textDecoration: "none",
               borderRadius: "8px",
-              fontWeight: "bold",
+              fontWeight: "bold"
             }}
           >
             Join UPSC NDA Channel
@@ -65,42 +94,58 @@ export default function App() {
               color: "white",
               textDecoration: "none",
               borderRadius: "8px",
-              fontWeight: "bold",
+              fontWeight: "bold"
             }}
           >
             Join Current Affairs Channel
           </a>
+
         </div>
       </div>
 
-      {/* NEWS */}
+      {/* NEWS SECTION */}
       <div
         style={{
           maxWidth: "800px",
-          margin: "auto",
+          margin: "auto"
         }}
       >
-        {news.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              background: "#111827",
-              padding: "20px",
-              borderRadius: "10px",
-              marginBottom: "20px",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-            }}
-          >
-            <h2 style={{ marginBottom: "10px" }}>{item.title}</h2>
 
-            <p style={{ color: "#cbd5f5" }}>{item.summary}</p>
+        {news
+          .filter((item) =>
+            item.title.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((item, index) => (
 
-            <small style={{ color: "#94a3b8" }}>
-              {item.source} | {item.date}
-            </small>
-          </div>
-        ))}
+            <div
+              key={index}
+              style={{
+                background: "#111827",
+                padding: "20px",
+                borderRadius: "10px",
+                marginBottom: "20px",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
+              }}
+            >
+
+              <h2 style={{ marginBottom: "10px" }}>
+                {item.title}
+              </h2>
+
+              <p style={{ color: "#cbd5f5" }}>
+                {item.summary}
+              </p>
+
+              <small style={{ color: "#94a3b8" }}>
+                {item.source} | {item.date}
+              </small>
+
+            </div>
+
+          ))}
+
       </div>
+
     </div>
   );
-              }
+        }

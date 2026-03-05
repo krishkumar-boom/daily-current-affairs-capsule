@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
 
-const filePath = "output/current_affairs.pdf";
+const filePath = "public/current-affairs.pdf";
 
 async function sendPDF() {
   const url = `https://api.telegram.org/bot${token}/sendDocument`;

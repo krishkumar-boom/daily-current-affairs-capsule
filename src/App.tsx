@@ -11,7 +11,7 @@ export default function App() {
   const [news, setNews] = useState<News[]>([]);
 
   useEffect(() => {
-    fetch("/src/data/news.json")
+    fetch("/news.json")
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);

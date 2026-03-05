@@ -1,25 +1,18 @@
-const fs = require("fs");
+import fs from "fs";
 
-const news = JSON.parse(fs.readFileSync("src/news.json"));
+const news = JSON.parse(fs.readFileSync("public/news.json", "utf8"));
 
-const result = news.map((item, i) => {
-  return {
-    title: item.title,
-    explanation: "This news is important for UPSC/NDA exams.",
-    exam_relevance: "Can be asked in current affairs section.",
-    mcq: {
-      question: `What is related to: ${item.title}?`,
-      options: [
-        "Option A",
-        "Option B",
-        "Option C",
-        "Option D"
-      ],
-      answer: "Option A"
-    }
-  };
-});
+const currentAffairs = news.map((item, index) => ({
+title: item.title,
+summary: item.summary,
+source: item.source,
+date: item.date,
+category: "General"
+}));
 
-fs.writeFileSync("src/current_affairs.json", JSON.stringify(result, null, 2));
+fs.writeFileSync(
+"public/current-affairs.json",
+JSON.stringify(currentAffairs, null, 2)
+);
 
-console.log("Current affairs generated!");
+console.log("Current affairs generated successfully");

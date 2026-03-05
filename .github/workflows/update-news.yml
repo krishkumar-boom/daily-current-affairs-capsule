@@ -12,34 +12,34 @@ jobs:
  update:
   runs-on: ubuntu-latest
 
-steps:
+  steps:
    - uses: actions/checkout@v3
 
    - name: Setup Node
-    uses: actions/setup-node@v3
-    with:
-      node-version: 18
+     uses: actions/setup-node@v3
+     with:
+       node-version: 18
 
    - name: Install dependencies
-    run: |
+     run: |
       npm install
       npm install rss-parser
       npm install pdfkit
 
    - name: Fetch news
-    run: node scripts/fetch-news.js
+     run: node scripts/fetch-news.js
 
    - name: Generate current affairs
-    run: node scripts/generate-ca.js
+     run: node scripts/generate-ca.js
 
    - name: Generate MCQ
-    run: node scripts/generate-mcq.js
+     run: node scripts/generate-mcq.js
 
    - name: Generate PDF
-    run: node scripts/generate-pdf.js
+     run: node scripts/generate-pdf.js
 
    - name: Commit changes
-    run: |
+     run: |
       git config --global user.name "github-actions[bot]"
       git config --global user.email "github-actions[bot]@users.noreply.github.com"
       git add .

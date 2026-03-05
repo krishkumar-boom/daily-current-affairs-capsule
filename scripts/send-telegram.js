@@ -1,25 +1,26 @@
 import fs from "fs";
 import fetch from "node-fetch";
+import FormData from "form-data";
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
-const chatId = process.env.TELEGRAM_CHAT_ID;
+const token = process.env.8536333961:AAFjVn41UGFiYIaWpE0Z-EFHUCUExj8eRtU;
+const chatId = process.env.1003516899090;
 
 const filePath = "public/current-affairs.pdf";
 
 async function sendPDF() {
   const url = `https://api.telegram.org/bot${token}/sendDocument`;
 
-  const formData = new FormData();
-  formData.append("chat_id", chatId);
-  formData.append("document", fs.createReadStream(filePath));
-  formData.append("caption", "📚 Daily Current Affairs Capsule");
+  const form = new FormData();
+  form.append("chat_id", chatId);
+  form.append("caption", "📚 Daily Current Affairs Capsule");
+  form.append("document", fs.createReadStream(filePath));
 
-  const res = await fetch(url, {
+  const response = await fetch(url, {
     method: "POST",
-    body: formData
+    body: form
   });
 
-  const data = await res.json();
+  const data = await response.json();
   console.log(data);
 }
 

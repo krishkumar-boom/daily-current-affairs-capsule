@@ -28,7 +28,7 @@ export default function App() {
     >
       {/* HEADER */}
       <div style={{ textAlign: "center", marginBottom: "30px" }}>
-        <img src="/file_000000000e3c872088ffdade1b40ae755-1.jpg" width="120" />
+        <img src="/logo.jpg" width="120" />
 
         <h1 style={{ marginTop: "10px" }}>Daily Current Affairs Capsule</h1>
 

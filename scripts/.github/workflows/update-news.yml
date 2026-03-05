@@ -26,6 +26,12 @@ jobs:
 - name: Generate current affairs
   run: node scripts/generate-ca.js
 
+- name: Generate MCQ
+  run: node scripts/generate-mcq.js
+
+- name: Generate PDF
+  run: node scripts/generate-pdf.js
+  
   - name: Commit changes
   run: |
     git config --global user.name "github-actions[bot]"

@@ -25,7 +25,8 @@ jobs:
       npm install
       npm install rss-parser
       npm install pdfkit
-
+      npm install node-fetch form-data
+      
    - name: Fetch news
      run: node scripts/fetch-news.js
 

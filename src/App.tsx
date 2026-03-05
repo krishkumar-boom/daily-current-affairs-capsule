@@ -23,18 +23,16 @@ export default function App() {
       minHeight: "100vh",
       padding: "20px"
     }}>
-      
-      <h1 style={{
-        textAlign: "center",
-        marginBottom: "30px"
-      }}>
-        Daily Current Affairs Capsule
-      </h1>
 
-      <div style={{
-        maxWidth: "800px",
-        margin: "auto"
-      }}>
+      <div style={{ textAlign: "center", marginBottom: "30px" }}>
+  <img src="/file_00000000e3c872088ffdade1b40ae755-1.jpg" width="140" />
+  <h1>Daily Current Affairs Capsule</h1>
+</div>
+
+<div style={{
+  maxWidth: "800px",
+  margin: "auto"
+}}>
         {news.map((item, index) => (
           <div key={index} style={{
             background: "white",

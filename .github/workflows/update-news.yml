@@ -29,10 +29,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin
-          git reset --hard origin/main
+          git config --global user.name "news-bot"
+          git config --global user.email "bot@example.com"
           git add .
-          git commit -m "Auto update news" || echo "No changes"
-          git push origin HEAD:main
+          git commit -m "update daily news" || echo "No changes"
+          git push

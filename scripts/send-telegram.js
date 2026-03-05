@@ -2,8 +2,8 @@ import fs from "fs";
 import fetch from "node-fetch";
 import FormData from "form-data";
 
-const token = process.env.8536333961:AAFjVn41UGFiYIaWpE0Z-EFHUCUExj8eRtU;
-const chatId = process.env.1003516899090;
+const token = process.env.TELEGRAM_BOT_TOKEN;
+const chatId = process.env.TELEGRAM_CHAT_ID;
 
 const filePath = "public/current-affairs.pdf";
 
@@ -15,12 +15,12 @@ async function sendPDF() {
   form.append("caption", "📚 Daily Current Affairs Capsule");
   form.append("document", fs.createReadStream(filePath));
 
-  const response = await fetch(url, {
+  const res = await fetch(url, {
     method: "POST",
     body: form
   });
 
-  const data = await response.json();
+  const data = await res.json();
   console.log(data);
 }
 

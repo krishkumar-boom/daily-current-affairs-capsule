@@ -35,7 +35,15 @@ jobs:
 
    - name: Generate MCQ
      run: node scripts/generate-mcq.js
+   - name: Generate MCQ
+     run: node scripts/generate-mcq.js
 
+   - name: Send MCQ to Telegram
+     run: node scripts/send-mcq.js
+     env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+ 
    - name: Generate PDF
      run: node scripts/generate-pdf.js
 

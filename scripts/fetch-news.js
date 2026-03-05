@@ -16,7 +16,7 @@ const articles = feed.items.slice(0, 5).map(item => ({
 
 console.log(articles);   // 👈 ye line add karo
 
-fs.writeFileSync("src/data/news.json",
+fs.writeFileSync("public/news.json",
 JSON.stringify(articles, null, 2));
 
 }

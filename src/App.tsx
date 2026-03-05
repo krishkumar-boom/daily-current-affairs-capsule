@@ -7,7 +7,7 @@ type News = {
   date: string;
 };
 
-function App() {
+export default function App() {
 
   const [news, setNews] = useState<News[]>([]);
 
@@ -18,15 +18,15 @@ function App() {
   }, []);
 
   return (
-    <div style={{padding:"30px", fontFamily:"Arial"}}>
+    <div style={{ padding: "30px", fontFamily: "Arial" }}>
       <h1>Daily Current Affairs Capsule</h1>
 
-      {news.map((n,i)=>(
+      {news.map((n, i) => (
         <div key={i} style={{
-          border:"1px solid #ddd",
-          padding:"20px",
-          marginBottom:"20px",
-          borderRadius:"10px"
+          border: "1px solid #ddd",
+          padding: "20px",
+          marginBottom: "20px",
+          borderRadius: "10px"
         }}>
 
           <h2>{n.title}</h2>
@@ -41,5 +41,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -17,46 +17,80 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{
-      fontFamily: "Arial",
-      background: "#f4f6f8",
-      minHeight: "100vh",
-      padding: "20px"
-    }}>
+    <div
+      style={{
+        fontFamily: "Arial",
+        background: "#f4f6f8",
+        minHeight: "100vh",
+        padding: "20px"
+      }}
+    >
 
-      <div style={{ textAlign: "center", marginBottom: "30px" }}>
-  <img src="/file_00000000e3c872088ffdade1b40ae755-1.jpg" width="140" />
-  <h1>Daily Current Affairs Capsule</h1>
-</div>
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "40px"
+        }}
+      >
+        <img
+          src="/file_00000000e3c872088ffdade1b40ae755-1.jpg"
+          width="120"
+          style={{
+            borderRadius: "50%",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+          }}
+        />
 
-<div style={{
-  maxWidth: "800px",
-  margin: "auto"
-}}>
+        <h1
+          style={{
+            marginTop: "10px",
+            fontSize: "32px",
+            fontWeight: "bold"
+          }}
+        >
+          Daily Current Affairs Capsule
+        </h1>
+
+        <p style={{ color: "#666" }}>
+          UPSC • NDA • Defence Exam Preparation
+        </p>
+      </div>
+
+
+      <div
+        style={{
+          maxWidth: "800px",
+          margin: "auto"
+        }}
+      >
         {news.map((item, index) => (
-          <div key={index} style={{
-            background: "white",
-            padding: "20px",
-            borderRadius: "10px",
-            marginBottom: "20px",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
-          }}>
-            
-            <h2 style={{marginBottom:"10px"}}>
+          <div
+            key={index}
+            style={{
+              background: "white",
+              padding: "20px",
+              borderRadius: "10px",
+              marginBottom: "20px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
+            }}
+          >
+
+            <h2 style={{ marginBottom: "10px" }}>
               {item.title}
             </h2>
 
-            <p style={{color:"#444"}}>
+            <p style={{ color: "#444" }}>
               {item.summary}
             </p>
 
-            <small style={{color:"#888"}}>
+            <small style={{ color: "#888" }}>
               {item.source} | {item.date}
             </small>
 
           </div>
         ))}
       </div>
+
     </div>
   );
 }

@@ -30,10 +30,13 @@ jobs:
       - name: Generate MCQ
         run: node scripts/generate-mcq.js
 
+      - name: Generate PDF
+        run: node scripts/generate-pdf.js
+
       - name: Commit and push changes
         run: |
           git config --global user.name "news-bot"
           git config --global user.email "bot@example.com"
           git add .
-          git commit -m "update daily news" || echo "No changes"
+          git commit -m "update daily current affairs" || echo "No changes"
           git push

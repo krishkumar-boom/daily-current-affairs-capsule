@@ -27,6 +27,9 @@ jobs:
       - name: Fetch news
         run: node scripts/fetch-news.js
 
+      - name: Generate MCQ
+        run: node scripts/generate-mcq.js
+
       - name: Commit and push changes
         run: |
           git config --global user.name "news-bot"
